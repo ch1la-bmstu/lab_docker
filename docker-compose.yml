@@ -13,10 +13,10 @@ services:
         condition: service_healthy
 
     environment:
-      DB_HOST: db
-      DB_USER: user
-      DB_PASSWORD: password
-      DB_NAME: tasks_db
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
 
   db:
     image: mysql:8.0
@@ -25,10 +25,10 @@ services:
     restart: always
 
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: tasks_db
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
     ports:
       - "3306:3306"
